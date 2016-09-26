@@ -3,26 +3,28 @@ import logo from './logo.svg';
 import './Styles.css';
 import Slider from 'material-ui/Slider';
 import FlatButton from 'material-ui/FlatButton';
+import {CardTitle, CardMedia} from 'material-ui/Card'
 import DateUtils from './DateUtils.js';
 import PubUtils from './PubUtils.js';
 
 class Pub extends Component {
   state = {
-    currentPubNumber: 0,
- 
+    currentPubNumber: DateUtils.getCurrentPubNumber(),
+    currentPubSource: PubUtils.getPubImageSource(DateUtils.getCurrentPubNumber()),
+    currentPubName: PubUtils.getPubName(DateUtils.getCurrentPubNumber()),
   }
 
-  handleFirstSlider(event, value) {
-    this.setState({firstSlider: value});
+  handleSlider(event, value) {
+    this.setState({
+      currentPubNumber: value,
+      currentPubSource: PubUtils.getPubImageSource(value),
+      currentPubName: PubUtils.getPubName(value),
+    });
   }
 
-  handleSecondSlider(event, value) {
-    this.setState({secondSlider: value});
-  }
   render() {
 
-    //var currentPubNumber = DateUtils.getCurrentPubNumber();
-    var currentTimeString = (Date.now()).toString()
+    console.log("current src: " + this.state.currentPubSource);
 
     return (
       <div className="Pub">
@@ -42,15 +44,22 @@ class Pub extends Component {
 
         <FlatButton label={"Current pub : " + PubUtils.getPubName(DateUtils.getCurrentPubNumber())} />
 
+        <div className="PubImage" auto>
+          <CardMedia
+            overlay={<CardTitle title={this.state.currentPubName} subtitle="Something clever here" />}
+          >
+            <img src={this.state.currentPubSource} />
+          </CardMedia>
+        </div>
 
         <div>
           <Slider
             defaultValue={DateUtils.getCurrentPubNumber()}
-            value={this.state.firstSlider}
+            value={this.state.currentPubNumber}
             min={0}
-            max={5}
+            max={4}
             step={1}
-            onChange={this.handleFirstSlider.bind(this)}
+            onChange={this.handleSlider.bind(this)}
           />
         </div>
 

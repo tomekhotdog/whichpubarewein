@@ -18,12 +18,20 @@
   background-color: #0080ff;
   height: 70px;
   padding: 20px;
+  margin-top:450px;
   color: white;
 }
 
 .Pub {
   height: 200px;
   padding: 20px;
+}
+
+.PubImage {
+  height: 400px;
+  width: 500px;
+  padding: 20px;
+  margin:auto;
 }
 
 @keyframes App-logo-spin {
