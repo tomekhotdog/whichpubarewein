@@ -4,14 +4,21 @@ import './Styles.css';
 import Slider from 'material-ui/Slider';
 import FlatButton from 'material-ui/FlatButton';
 import {CardTitle, CardMedia} from 'material-ui/Card'
+import Divider from 'material-ui/Divider';
+import {blue200, blue700, pinkA100, white} from 'material-ui/styles/colors'
 import DateUtils from './DateUtils.js';
 import PubUtils from './PubUtils.js';
+import Cron from 'node-cron';
 
 class Pub extends Component {
   state = {
     currentPubNumber: DateUtils.getCurrentPubNumber(),
     currentPubSource: PubUtils.getPubImageSource(DateUtils.getCurrentPubNumber()),
     currentPubName: PubUtils.getPubName(DateUtils.getCurrentPubNumber()),
+    daysLeft: "",
+    hoursLeft: "",
+    minutesLeft: "",
+    secondsLeft: "",
   }
 
   handleSlider(event, value) {
@@ -22,9 +29,21 @@ class Pub extends Component {
     });
   }
 
+  updateTimeLeft() {
+    this.setState({
+      daysLeft: DateUtils.getDaysLeft().toString(),
+      hoursLeft: DateUtils.getHoursLeft().toString(),
+      minutesLeft: DateUtils.getMinutesLeft().toString(),
+      secondsLeft: DateUtils.getSecondsLeft().toString(),
+    });
+  }
+
   render() {
 
-    console.log("current src: " + this.state.currentPubSource);
+    Cron.schedule('*/10 * * * * *', () => {
+      console.log('running a task every 10 second');
+      this.updateTimeLeft();
+    });
 
     return (
       <div className="Pub">
@@ -33,20 +52,20 @@ class Pub extends Component {
           Current time: {(new Date).toString()}
         </p>
 
-        <p className="App-intro">
-          Time left until the start:
-        </p>
+        <FlatButton label={"Days left: " + this.state.daysLeft} backgroundColor={blue200} />
+        <FlatButton label={"Hours left: " + this.state.hoursLeft} backgroundColor={blue200} />
+        <FlatButton label={"Minutes left: " + this.state.minutesLeft} backgroundColor={blue200} />
 
-        <FlatButton label={"Days left: " + DateUtils.getDaysLeft().toString()} />
-        <FlatButton label={"Hours left: " + DateUtils.getHoursLeft().toString()} />
-        <FlatButton label={"Minutes left: " + DateUtils.getMinutesLeft().toString()} />
-        <FlatButton label={"Seconds left: " + DateUtils.getSecondsLeft().toString()} />
+        <div className="Divider"/>
 
-        <FlatButton label={"Current pub : " + PubUtils.getPubName(DateUtils.getCurrentPubNumber())} />
+        <div>
+          <FlatButton label={"See the whole route"} href={PubUtils.getRouteUrl()} backgroundColor={pinkA100} />
+          <FlatButton label={"Route to " + this.state.currentPubName} href={PubUtils.getCurrentPubRouteUrl(this.state.currentPubNumber)} backgroundColor={pinkA100} />
+        </div>
 
         <div className="PubImage" auto>
           <CardMedia
-            overlay={<CardTitle title={this.state.currentPubName} subtitle="Something clever here" />}
+            overlay={<CardTitle title={this.state.currentPubName} subtitle={PubUtils.getCurrentPubSubtitle(this.state.currentPubNumber)} />}
           >
             <img src={this.state.currentPubSource} />
           </CardMedia>

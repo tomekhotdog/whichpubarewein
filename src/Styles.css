@@ -8,30 +8,34 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 60px;
-  padding: 20px;
+  background-color: #0080ff;
+  height: 70px;
+  padding: 10px;
   color: white;
 }
 
 .App-footer {
-  background-color: #0080ff;
+  background-color: #222;
   height: 70px;
   padding: 20px;
-  margin-top:450px;
+  margin-top:350px;
   color: white;
 }
 
 .Pub {
-  height: 200px;
+  height: 150px;
   padding: 20px;
 }
 
 .PubImage {
-  height: 400px;
-  width: 500px;
+  height: 270px;
+  width: 400px;
   padding: 20px;
   margin:auto;
+}
+
+.Divider {
+  padding: 5px;
 }
 
 @keyframes App-logo-spin {

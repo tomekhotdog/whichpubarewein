@@ -25,13 +25,13 @@ class App extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="App">
           <div className="App-header">
-            <h2>Wilson House Paddington Pub Crawl 2016</h2>
+            <h1>Which pub are we in?</h1>
           </div>
 
           <Pub />
 
           <div className="App-footer">
-            <h2>Which pub are we in?</h2>
+            <h2>Wilson House Paddington Pub Crawl 2016</h2>
           </div>
 
       </div>

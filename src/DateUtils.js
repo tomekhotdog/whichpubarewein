@@ -3,15 +3,15 @@ function getCurrentTime() {
 }
 
 function getCrawlStartTime() {
-	return new Date("2016/09/27 20:00:00");
+	return new Date("2016/10/11 20:00:00");
 }
 
 function getCrawlEndTime() {
-	return new Date("2016/09/27 23:59:59");
+	return new Date("2016/10/11 23:59:59");
 }
 
 function getTimeToCrawlStart() {
-	return new Date(Math.abs(getCrawlStartTime() - getCurrentTime()));
+	return new Date(Math.max(0, getCrawlStartTime() - getCurrentTime()));
 }
 
 function getDaysLeft() {
@@ -41,15 +41,18 @@ function isPubCrawlNow() {
 // Assuming spending 30mins at each pub, count is from 0 - 5.
 function getCurrentPubNumber() {
 	if (Date.now() < getCrawlStartTime()) {
+		console.log("getCurrentPubNumber: 0")
 		return 0;
 	}
 
 	if (Date.now() > getCrawlEndTime()) {
+		console.log("getCurrentPubNumber: 5")
 		return 5;
 	}
 
 	var THIRTY_MINUTES = 1000 * 60 * 30;
-	return (getCurrentTime() - getCrawlStartTime()) / THIRTY_MINUTES;
+	console.log("getCurrentPubNumber: " + (getCurrentTime() - getCrawlStartTime()) / THIRTY_MINUTES);
+	return Math.floor((getCurrentTime() - getCrawlStartTime()) / THIRTY_MINUTES);
 }
 
 module.exports = {
