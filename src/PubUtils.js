@@ -19,13 +19,15 @@ function getPubImageSource(currentPubNumber) {
 }
 
 function getRouteUrl() {
-	return "https://www.google.co.uk/maps/dir/Dickens,+25+London+Street,+London+W2+1HH,+United+Kingdom/The+Victoria,+10A+Strathearn+Place,+London+W2+2NH,+United+Kingdom/Duke+Of+Kendal,+Connaught+Street,+London/THE+LARRIK,+Crawford+Place,+London/The+Chapel,+Chapel+Street,+London/@51.5167335,-0.1737021,16z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0x48761ab2c5ce026f:0x9dc231aba0439f03!2m2!1d-0.1745341!2d51.5157862!1m5!1m1!1s0x4876054ca282a945:0x7517499701678b8a!2m2!1d-0.1712744!2d51.5134577!1m5!1m1!1s0x4876054acbdf9333:0xb934e229872d7952!2m2!1d-0.1662275!2d51.5145102!1m5!1m1!1s0x48761ab58c8fdffb:0xd67fdafad9561818!2m2!1d-0.1648794!2d51.5187936!1m5!1m1!1s0x48761ab5ddf0ea6b:0x920b92809176649c!2m2!1d-0.1662128!2d51.5198455!3e2";
+	//return "https://www.google.co.uk/maps/dir/Dickens,+25+London+Street,+London+W2+1HH,+United+Kingdom/The+Victoria,+10A+Strathearn+Place,+London+W2+2NH,+United+Kingdom/Duke+Of+Kendal,+Connaught+Street,+London/THE+LARRIK,+Crawford+Place,+London/The+Chapel,+Chapel+Street,+London/@51.5167335,-0.1737021,16z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0x48761ab2c5ce026f:0x9dc231aba0439f03!2m2!1d-0.1745341!2d51.5157862!1m5!1m1!1s0x4876054ca282a945:0x7517499701678b8a!2m2!1d-0.1712744!2d51.5134577!1m5!1m1!1s0x4876054acbdf9333:0xb934e229872d7952!2m2!1d-0.1662275!2d51.5145102!1m5!1m1!1s0x48761ab58c8fdffb:0xd67fdafad9561818!2m2!1d-0.1648794!2d51.5187936!1m5!1m1!1s0x48761ab5ddf0ea6b:0x920b92809176649c!2m2!1d-0.1662128!2d51.5198455!3e2";
+	return "http://maps.apple.com/?q=51.507269,-0.127695";
 }
 
 function getCurrentPubRouteUrl(currentPubNumber) {
 	switch(currentPubNumber) {
 		case 0:
-			return "https://www.google.co.uk/maps/dir/Wilson+House+-+Imperial+College+Halls,+Imperial+College+London,+Sussex+Gardens,+Paddington,+London/Dickens,+25+London+Street,+London+W2+1HH,+United+Kingdom/@51.5159729,-0.174462,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x48761ab48376eacf:0x22a7539da69ad1f2!2m2!1d-0.1700944!2d51.5170052!1m5!1m1!1s0x48761ab2c5ce026f:0x9dc231aba0439f03!2m2!1d-0.1745341!2d51.5157862?hl=en";
+			//return "https://www.google.co.uk/maps/dir/Wilson+House+-+Imperial+College+Halls,+Imperial+College+London,+Sussex+Gardens,+Paddington,+London/Dickens,+25+London+Street,+London+W2+1HH,+United+Kingdom/@51.5159729,-0.174462,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x48761ab48376eacf:0x22a7539da69ad1f2!2m2!1d-0.1700944!2d51.5170052!1m5!1m1!1s0x48761ab2c5ce026f:0x9dc231aba0439f03!2m2!1d-0.1745341!2d51.5157862?hl=en";
+			return "http://maps.apple.com/?q=51.507269,-0.127695"
 		case 1:
 			return "https://www.google.co.uk/maps/dir/Wilson+House+-+Imperial+College+Halls,+Imperial+College+London,+Sussex+Gardens,+Paddington,+London/The+Victoria,+10A+Strathearn+Place,+London+W2+2NH,+United+Kingdom/@51.5152314,-0.1733304,17z/data=!3m1!4b1!4m13!4m12!1m5!1m1!1s0x48761ab48376eacf:0x22a7539da69ad1f2!2m2!1d-0.1700944!2d51.5170052!1m5!1m1!1s0x4876054ca282a945:0x7517499701678b8a!2m2!1d-0.1712744!2d51.5134577?hl=en";
 		case 2:
