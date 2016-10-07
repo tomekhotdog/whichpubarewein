@@ -5,7 +5,7 @@ function getPubName(currentPubNumber) {
 			"The Larrik", 
 			"The Chapel"]
 
-	if (currentPubNumber >= pubs.length) return "Not sure...";
+	if (currentPubNumber >= pubs.length) return "No pubs left!";
 	return pubs[currentPubNumber];
 }
 
@@ -15,6 +15,8 @@ function getPubImageSource(currentPubNumber) {
 				  "http://www.perfectpint.co.uk/files/pubs/original/Lord_Wargrave_comp.png",
 				  "http://www.pubandbar-network.co.uk/imagePubMain/1224594888pub.JPG",
 				  "http://thechapellondon.com/images/gomena.jpg"];
+
+	if (currentPubNumber >= sources.length) return "http://vignette2.wikia.nocookie.net/looneytunes/images/e/e1/All.jpg/revision/latest?cb=20150313020828";
 	return sources[currentPubNumber];
 }
 
@@ -32,8 +34,10 @@ function getCurrentPubRouteUrl(currentPubNumber) {
 			return "http://maps.apple.com/?q=51.518092,-0.165778";
 		case 3:
 			return "http://maps.apple.com/?q=51.518782,-0.164870";
-		default:
+		case 4:
 			return "http://maps.apple.com/?q=51.519871,-0.166196";
+		default:
+			return "http://maps.apple.com/?q=51.517006,-0.170106"
 	}
 }
 
@@ -44,7 +48,7 @@ function getCurrentPubSubtitle(currentPubNumber) {
 		case 1:
 			return "Cheapest pint: British ales £4.25";
 		case 2:
-			return "";
+			return "Cheapest pints: ales £4.10, Amstel £4.40";
 		case 3:
 			return "";
 		case 4:
